@@ -1,4 +1,5 @@
 {
+
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -36,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "haiya",
+  "name": "@napigo-hometech/napigo-ui",
   "author": "Napihup",
   "module": "dist/haiya.esm.js",
   "size-limit": [
