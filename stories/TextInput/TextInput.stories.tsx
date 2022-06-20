@@ -12,8 +12,8 @@ export default meta;
 const Template: Story = (args) => <TextInput name="text-input" {...args} />;
 
 /** */
-export const TextInputStandard = Template.bind({});
-TextInputStandard.args = {
+export const Default = Template.bind({});
+Default.args = {
   placeholder: 'This is Input',
 };
 

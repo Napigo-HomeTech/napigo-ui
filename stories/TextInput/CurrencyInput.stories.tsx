@@ -14,8 +14,8 @@ const Template: Story = (args) => (
 );
 
 /** */
-export const CurrencyInputStandard = Template.bind({});
-CurrencyInputStandard.args = {
+export const Default = Template.bind({});
+Default.args = {
   placeholder: 'This is currency Input',
 };
 
