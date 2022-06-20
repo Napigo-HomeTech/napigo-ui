@@ -2,25 +2,18 @@
 
 const moduleColors = {
   primary: '#037C66',
-  'primary-focus': '#03705C',
   'primary-content': '#FDFDFD',
   secondary: '#E0649E',
-  'secondary-focus': '#E0649E',
   'secondary-content': '#FDFDFD',
   accent: '#E09F6D',
-  'accent-focus': '#D49463',
   'accent-content': '#FDFDFD',
   info: '#99D2E6',
-  'info-focus': '#88C5DB',
   'info-content': '#002B3D',
   warning: '#FBBD23',
-  'warning-focus': '#E9B229',
   'warning-content': '#382800',
   success: '#78E8B4',
-  'success-focus': '#6BDAA6',
   'success-content': '#003320',
   error: '#F87272',
-  'error-focus': '#EB6666',
   'error-content': '#470000',
 };
 const darkBaseColors = {

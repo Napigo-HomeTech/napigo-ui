@@ -18,6 +18,11 @@ const ButtonColorClassMap = {
   'ghost-warning': 'btn-ghost text-warning active:border-warning',
   'ghost-error': 'btn-ghost text-error active:border-error',
 };
+const ButtonVariantClassMap = {
+  normal: '',
+  square: 'btn-square',
+  block: 'btn-block',
+};
 const ButtonSizeClassMap = {
   sm: 'btn-sm',
   md: 'btn-md',
@@ -44,6 +49,8 @@ type Color =
   | 'ghost-warning'
   | 'ghost-error';
 
+type Variant = 'square' | 'normal' | 'block';
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
   size?: Sizing;
@@ -51,7 +58,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   outline?: boolean;
   renderIcon?: () => JSX.Element | ReactElement;
   iconPosition?: IconPosition;
-  square?: boolean;
+  variant?: Variant;
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -62,15 +69,15 @@ export const Button: React.FC<ButtonProps> = (props) => {
     outline = false,
     renderIcon = () => {},
     iconPosition = 'left',
-    square = false,
+    variant = 'normal',
     className,
     ...buttonProps
   } = props;
 
   const classes = useMemo(() => {
-    return `btn ${square ? 'btn-square' : ''} gap-2 ${
-      outline ? 'btn-outline' : ''
-    } ${ButtonSizeClassMap[size]} ${ButtonColorClassMap[color]}`;
+    return `btn gap-2 ${outline ? 'btn-outline' : ''} ${
+      ButtonSizeClassMap[size]
+    } ${ButtonColorClassMap[color]} ${ButtonVariantClassMap[variant]}`;
   }, [size, color, outline]);
 
   return (
