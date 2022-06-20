@@ -4,7 +4,7 @@ import { Button } from '../../src/components/button/Button';
 import { FaBeer } from 'react-icons/fa';
 
 const meta: Meta = {
-  title: 'Elements/Buttons',
+  title: 'Actions/Button',
   component: Button,
 };
 
