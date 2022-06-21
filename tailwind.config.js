@@ -42,8 +42,8 @@ const commonVariables = {
   '--rounded-btn': '0.25rem',
 };
 module.exports = {
-  //   mode: 'jit',
-  //   purge: ['./src/**/*.{js,jsx,ts,tsx}', './stories/*'],
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './stories/*'],
   darkMode: 'class', // or 'media' or 'class'
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   plugins: [require('daisyui')],

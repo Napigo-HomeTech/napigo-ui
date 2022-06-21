@@ -74,6 +74,7 @@
         "typescript": "^4.7.4"
     },
     "dependencies": {
+        "@headlessui/react": "^1.6.5",
         "daisyui": "^2.15.4",
         "react-icons": "^4.4.0"
     }
