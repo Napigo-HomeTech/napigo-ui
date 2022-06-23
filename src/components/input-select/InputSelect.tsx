@@ -46,7 +46,7 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
                 {...inputProps}
                 type="text"
                 onFocus={() => setOpen(false)}
-                className="input input-bordered flex flex-1 min-w-[50px] "
+                className="input bg-base-200 flex flex-1 min-w-[50px]"
               />
               <Button
                 onClick={() => setOpen(!open)}
@@ -54,22 +54,13 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
                 color="primary"
                 text={selected.text}
                 tabIndex={0}
+                type="button"
                 renderIcon={() => <FaCaretDown />}
                 iconPosition="right"
               />
             </div>
           </div>
 
-          {/* <Transition
-          show={open}
-          as={Fragment}
-          enter="transition duration-100 ease-out"
-          enterFrom="transform scale-95 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-95 opacity-0"
-        > */}
           <div
             className={`absolute ${
               open ? 'inline-flex' : 'hidden'
@@ -94,7 +85,6 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
               })}
             </ul>
           </div>
-          {/* </Transition> */}
         </div>
       </ClickAwayListener>
     </div>

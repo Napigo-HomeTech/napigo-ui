@@ -11,7 +11,7 @@ interface SelectButtonProps {
   defaultText?: string;
   label?: string;
 }
-export const SelectButton: React.FC<SelectButtonProps> = (props) => {
+export const SelectButton: React.FC<SelectButtonProps> = props => {
   const { selected, defaultText = '-', label } = props;
 
   const handleClick = (ev: React.MouseEvent<HTMLLabelElement>) => {
@@ -32,13 +32,16 @@ export const SelectButton: React.FC<SelectButtonProps> = (props) => {
         </label>
       )}
 
-      <label className={`input-group cursor-pointer`} onClick={handleClick}>
+      <label
+        className={`input-group cursor-pointer flex flex-row`}
+        onClick={handleClick}
+      >
         <input
           type="text"
           contentEditable={false}
           value={inputValue}
           className={`input bg-base-200 border-transparent cursor-pointer
-           focus:outline-none`}
+           focus:outline-none flex-1 min-w-[50px]`}
         />
         <span className="bg-base-200">
           <FaCaretDown />

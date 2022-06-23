@@ -23,7 +23,7 @@ interface CurrencyInputProps
   label?: string;
 }
 
-export const CurrencyInput: React.FC<CurrencyInputProps> = (props) => {
+export const CurrencyInput: React.FC<CurrencyInputProps> = props => {
   const { name, label, sizing = 'md', ...inputProps } = props;
 
   return (
@@ -42,7 +42,8 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = (props) => {
           {...inputProps}
           id={name}
           type="text"
-          className={`input bg-base-200 input-bordered border-transparent ${InputSizeClassMap[sizing]}`}
+          className={`input bg-base-200 input-bordered border-transparent flex flex-1 min-w-[50px]
+           ${InputSizeClassMap[sizing]}`}
         />
       </label>
     </div>
