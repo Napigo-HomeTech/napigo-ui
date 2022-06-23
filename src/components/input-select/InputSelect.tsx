@@ -15,7 +15,7 @@ interface InputSelectProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onSelectChange?: (value: Option) => void;
   label?: string;
 }
-export const InputSelect: React.FC<InputSelectProps> = props => {
+const InputSelect: React.FC<InputSelectProps> = props => {
   const {
     options,
     defaultSelected,
@@ -99,3 +99,5 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
     </div>
   );
 };
+
+export default InputSelect;
