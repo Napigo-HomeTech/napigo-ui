@@ -1,8 +1,7 @@
-import React, { Fragment, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import { Button } from '../button/Button';
-import { Transition } from '@headlessui/react';
-// import ClickAwayListener from '../common/ClickAwayListener';
+import ClickAwayListener from '../common/ClickAwayListener';
 
 type Option = {
   value: string;
@@ -33,35 +32,35 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
 
   return (
     <div>
-      {/* <ClickAwayListener onClickAway={() => setOpen(false)}> */}
-      <div className="relative w-full">
-        <div className="form-control">
-          {label && (
-            <label className="label">
-              <span className="label-text">{label}</span>
-            </label>
-          )}
+      <ClickAwayListener onClickAway={() => setOpen(false)}>
+        <div className="relative w-full">
+          <div className="form-control">
+            {label && (
+              <label className="label">
+                <span className="label-text">{label}</span>
+              </label>
+            )}
 
-          <div className="input-group flex flex-row">
-            <input
-              {...inputProps}
-              type="text"
-              onFocus={() => setOpen(false)}
-              className="input input-bordered flex flex-1 min-w-[50px] "
-            />
-            <Button
-              onClick={() => setOpen(!open)}
-              size="md"
-              color="primary"
-              text={selected.text}
-              tabIndex={0}
-              renderIcon={() => <FaCaretDown />}
-              iconPosition="right"
-            />
+            <div className="input-group flex flex-row">
+              <input
+                {...inputProps}
+                type="text"
+                onFocus={() => setOpen(false)}
+                className="input input-bordered flex flex-1 min-w-[50px] "
+              />
+              <Button
+                onClick={() => setOpen(!open)}
+                size="md"
+                color="primary"
+                text={selected.text}
+                tabIndex={0}
+                renderIcon={() => <FaCaretDown />}
+                iconPosition="right"
+              />
+            </div>
           </div>
-        </div>
 
-        <Transition
+          {/* <Transition
           show={open}
           as={Fragment}
           enter="transition duration-100 ease-out"
@@ -70,10 +69,12 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
           leave="transition duration-75 ease-out"
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
-        >
+        > */}
           <div
-            className="absolute w-[170px] h-auto bg-base-300 shadow-2xl mt-[5px] right-0 z-20 rounded
-          p-2"
+            className={`absolute ${
+              open ? 'inline-flex' : 'hidden'
+            } w-[170px] h-auto bg-base-300 shadow-2xl mt-[5px] right-0 z-20 rounded
+          p-2`}
           >
             <ul className="list-none m-0 p-0" role="menu">
               {options.map((item: Option) => {
@@ -93,9 +94,9 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
               })}
             </ul>
           </div>
-        </Transition>
-      </div>
-      {/* </ClickAwayListener> */}
+          {/* </Transition> */}
+        </div>
+      </ClickAwayListener>
     </div>
   );
 };
