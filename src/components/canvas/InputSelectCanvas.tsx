@@ -6,5 +6,5 @@ type InputSelectCanvasProps = {
 export const InputSelectCanvas: React.FC<InputSelectCanvasProps> = ({
   children,
 }) => {
-  return <div className="flex flex-col p-2 w-[600px]">{children}</div>;
+  return <div className="flex flex-col p-2 w-[400px]">{children}</div>;
 };
