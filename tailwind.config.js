@@ -43,9 +43,9 @@ const commonVariables = {
 };
 module.exports = {
   mode: 'jit',
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './stories/*'],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './stories/**/*'],
   darkMode: 'class', // or 'media' or 'class'
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './stories/**/*'],
   plugins: [require('daisyui')],
 
   themes: {
