@@ -13,8 +13,8 @@ export default meta;
 const Template: Story = (args) => <Button {...args} />;
 
 /** */
-export const TextButton = Template.bind({});
-TextButton.args = {
+export const Default = Template.bind({});
+Default.args = {
   text: 'Button',
   size: 'md',
   color: 'primary',

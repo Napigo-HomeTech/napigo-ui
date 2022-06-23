@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { SelectButton } from '../../src/components/select-button/SelectButton';
 
 const meta: Meta = {
-  title: 'UserInput/SelectButton',
+  title: 'Actions/SelectButton',
   component: SelectButton,
 };
 
@@ -25,5 +25,11 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Card Type',
   placeholder: 'This is Input',
+  defaultText: 'Select Type',
+};
+
+export const WithoutLabel = Template.bind({});
+WithoutLabel.args = {
+  placeholder: 'Without Label',
   defaultText: 'Select Type',
 };

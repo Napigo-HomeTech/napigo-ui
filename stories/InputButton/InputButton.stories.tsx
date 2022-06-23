@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { InputSelect } from '../../src/components/input-select/InputSelect';
+import { InputSelectCanvas } from '../../src/components/canvas/InputSelectCanvas';
 import { useState } from '@storybook/addons';
 
 const meta: Meta = {
@@ -24,14 +25,16 @@ const Template: Story = (args) => {
   const [_, setValue] = useState<string>('');
 
   return (
-    <InputSelect
-      options={myOptions}
-      defaultSelected={myOptions[0]}
-      onChange={(ev: React.ChangeEvent<HTMLInputElement>) =>
-        setValue(ev.target.value)
-      }
-      {...args}
-    />
+    <InputSelectCanvas>
+      <InputSelect
+        options={myOptions}
+        defaultSelected={myOptions[0]}
+        onChange={(ev: React.ChangeEvent<HTMLInputElement>) =>
+          setValue(ev.target.value)
+        }
+        {...args}
+      />
+    </InputSelectCanvas>
   );
 };
 
