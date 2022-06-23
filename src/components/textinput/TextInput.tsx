@@ -13,10 +13,19 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   sizing?: Sizing;
   label?: string;
+  editable?: boolean;
 }
 
-export const TextInput: React.FC<TextInputProps> = (props) => {
-  const { name, label, sizing = 'md', ...inputProps } = props;
+export const TextInput: React.FC<TextInputProps> = props => {
+  const {
+    name,
+    label,
+    sizing = 'md',
+    className,
+    contentEditable,
+    editable = true,
+    ...inputProps
+  } = props;
   return (
     <div className="form-control">
       {label && (
@@ -24,11 +33,12 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
           <span className="label-text">{label}</span>
         </label>
       )}
-
       <input
         {...inputProps}
         id={name}
-        className={`input bg-base-200 ${InputSizeClassMap[sizing]}`}
+        className={`input bg-base-200 ${InputSizeClassMap[sizing]}, ${
+          editable ? '' : 'pointer-events-none'
+        } `}
       />
     </div>
   );

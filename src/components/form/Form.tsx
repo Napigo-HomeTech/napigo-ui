@@ -19,7 +19,12 @@ export const Form: React.FC = () => {
     <div className="flex flex-row w-full h-screen border items-center justify-center px-[300px]">
       <form className="flex flex-col gap-2 w-full h-auto py-10">
         <h3 className="text-lg font-bold text-white">Form Title</h3>
-        <TextInput placeholder="-" label="Username" name="Username" />
+        <TextInput
+          editable={false}
+          placeholder="-"
+          label="Username"
+          name="Username"
+        />
         <TextInput
           placeholder="-"
           label="Username"

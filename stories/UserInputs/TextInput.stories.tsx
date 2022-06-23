@@ -9,7 +9,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story = (args) => <TextInput name="text-input" {...args} />;
+const Template: Story = args => <TextInput name="text-input" {...args} />;
 
 /** */
 export const Default = Template.bind({});
@@ -21,4 +21,11 @@ export const LabelledInput = Template.bind({});
 LabelledInput.args = {
   label: 'Enter Name',
   placeholder: 'My Name',
+};
+
+export const ContentNotEditable = Template.bind({});
+ContentNotEditable.args = {
+  label: 'Content disabled',
+  placeholder: 'Hmm',
+  editable: false,
 };
