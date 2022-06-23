@@ -73,6 +73,7 @@ export const InputSelect: React.FC<InputSelectProps> = (props) => {
               {options.map((item: Option) => {
                 return (
                   <li
+                    key={item.value}
                     role="menuitem"
                     onClick={() => {
                       setSelected(item);
