@@ -10,7 +10,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story = (args) => <Button {...args} />;
+const Template: Story = args => <Button {...args} />;
 
 /** */
 export const Default = Template.bind({});

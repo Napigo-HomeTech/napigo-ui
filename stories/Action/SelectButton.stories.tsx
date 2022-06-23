@@ -14,7 +14,7 @@ export type Option = {
   text: string;
 };
 
-const Template: Story = (args) => {
+const Template: Story = args => {
   const [selected] = React.useState<Option | null>(null);
 
   return <SelectButton selected={selected} {...args} />;
