@@ -30,15 +30,9 @@ const ButtonPopperTemplate: Story = args => {
           onClick={() => setOpen(!open)}
         />
         <PopperCard open={open} {...args}>
-          <ul className="list-none">
-            <li>one</li>
-            <li>one</li>
-            <li>one</li>
-            <li>one</li>
-            <li>one</li>
-            <li>one</li>
-            <li>one</li>
-          </ul>
+          <div className="flex flex-row items-center justify-center h-[200px]">
+            <h1>Hello</h1>
+          </div>
         </PopperCard>
       </div>
     </ClickAwayListener>
