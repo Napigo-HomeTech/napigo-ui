@@ -27,7 +27,6 @@ interface CurrencyInputProps
 export const CurrencyInput: React.FC<CurrencyInputProps> = props => {
   const { name, label, sizing = 'md', editable = true, ...inputProps } = props;
 
-  console.log(editable);
   return (
     <div className={`form-control ${editable ? '' : 'pointer-events-none'}`}>
       {label && (
