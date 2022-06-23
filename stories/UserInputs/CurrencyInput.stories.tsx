@@ -9,7 +9,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story = (args) => (
+const Template: Story = args => (
   <CurrencyInput name="currency-input" {...args} />
 );
 
@@ -23,4 +23,11 @@ export const LabelledCurrencyInput = Template.bind({});
 LabelledCurrencyInput.args = {
   label: 'Payable Amount',
   placeholder: '0.00',
+};
+
+export const ContentNotEditable = Template.bind({});
+ContentNotEditable.args = {
+  label: 'Content Not Editable',
+  placeholder: '$34.00',
+  editable: false,
 };

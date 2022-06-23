@@ -21,7 +21,7 @@ const myOptions = [
     text: 'Year (s)',
   },
 ];
-const Template: Story = (args) => {
+const Template: Story = args => {
   const [_, setValue] = useState<string>('');
 
   return (
@@ -48,4 +48,11 @@ Default.args = {
 export const WithoutLabel = Template.bind({});
 WithoutLabel.args = {
   placeholder: '0.00',
+};
+
+export const ContentNotEditable = Template.bind({});
+ContentNotEditable.args = {
+  placeholder: '450.00',
+  label: 'Total Cost',
+  editable: false,
 };

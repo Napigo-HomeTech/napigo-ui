@@ -13,6 +13,7 @@ interface InputSelectProps extends React.InputHTMLAttributes<HTMLInputElement> {
   defaultSelected: Option;
   onSelectChange?: (value: Option) => void;
   label?: string;
+  editable?: boolean;
 }
 export const InputSelect: React.FC<InputSelectProps> = props => {
   const {
@@ -20,6 +21,7 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
     defaultSelected,
     onSelectChange,
     label,
+    editable = true,
     ...inputProps
   } = props;
 
@@ -31,7 +33,7 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
   }, [selected]);
 
   return (
-    <div>
+    <div className={`${editable ? '' : 'pointer-events-none'}`}>
       <ClickAwayListener onClickAway={() => setOpen(false)}>
         <div className="relative w-full">
           <div className="form-control">
@@ -55,7 +57,7 @@ export const InputSelect: React.FC<InputSelectProps> = props => {
                 text={selected.text}
                 tabIndex={0}
                 type="button"
-                renderIcon={() => <FaCaretDown />}
+                renderIcon={() => (editable ? <FaCaretDown /> : <></>)}
                 iconPosition="right"
               />
             </div>

@@ -36,7 +36,7 @@ export const TextInput: React.FC<TextInputProps> = props => {
       <input
         {...inputProps}
         id={name}
-        className={`input bg-base-200 ${InputSizeClassMap[sizing]}, ${
+        className={`input bg-base-200 ${InputSizeClassMap[sizing]} ${
           editable ? '' : 'pointer-events-none'
         } `}
       />
