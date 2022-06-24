@@ -24,22 +24,23 @@ export const Select: React.FC<SelectProps> = props => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
 
   return (
-    <ClickAwayListener
-      onClickAway={() => {
-        setOpenDropdown(false);
-      }}
-    >
-      <div className="form-control w-full max-w-xs relative">
-        {label && (
-          <label className="label">
-            <span className="label-text">{label}</span>
-          </label>
-        )}
-        <Listbox value={selected} onChange={setSelected}>
-          <div className="relative">
-            <Listbox.Button
-              as={'button'}
-              className={`relative 
+    <Fragment>
+      <ClickAwayListener
+        onClickAway={() => {
+          setOpenDropdown(false);
+        }}
+      >
+        <div className="form-control w-full max-w-xs relative">
+          {label && (
+            <label className="label">
+              <span className="label-text">{label}</span>
+            </label>
+          )}
+          <Listbox value={selected} onChange={setSelected}>
+            <div className="relative">
+              <Listbox.Button
+                as={'button'}
+                className={`relative 
                 input flex-1 
                 flex 
                 flex-row 
@@ -60,23 +61,25 @@ export const Select: React.FC<SelectProps> = props => {
                 focus:ring-2
                 transition-none
                 ${activeSelectClassMap(openDropdown)}`}
-            >
-              <span className="block truncate">
-                {selected === null ? 'Select Option' : selected.text}
-              </span>
-              <span className={`absolute bg-base-200 right-[10px] top-[16px]`}>
-                <FaCaretDown />
-              </span>
-            </Listbox.Button>
+              >
+                <span className="block truncate">
+                  {selected === null ? 'Select Option' : selected.text}
+                </span>
+                <span
+                  className={`absolute bg-base-200 right-[10px] top-[16px]`}
+                >
+                  <FaCaretDown />
+                </span>
+              </Listbox.Button>
 
-            <Transition
-              as={Fragment}
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Listbox.Options
-                className={`absolute 
+              <Transition
+                as={Fragment}
+                leave="transition ease-in duration-100"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <Listbox.Options
+                  className={`absolute 
                 bg-base-300 
                 mt-2 
                 overflow-auto 
@@ -85,36 +88,37 @@ export const Select: React.FC<SelectProps> = props => {
                 w-full
                 focus:outline-none
                 `}
-              >
-                <Listbox.Option
-                  key={lodash.uniqueId()}
-                  value={null}
-                  className={({ active }) => `
+                >
+                  <Listbox.Option
+                    key={lodash.uniqueId()}
+                    value={null}
+                    className={({ active }) => `
                         px-4 py-[10px] text-sm text-white/30 ${
                           active ? 'bg-primary' : ''
                         }
                     `}
-                >
-                  Select Option
-                </Listbox.Option>
-                {options.map((item: Option) => (
-                  <Listbox.Option
-                    key={lodash.uniqueId()}
-                    value={item}
-                    className={({ active }) => `
+                  >
+                    Select Option
+                  </Listbox.Option>
+                  {options.map((item: Option) => (
+                    <Listbox.Option
+                      key={lodash.uniqueId()}
+                      value={item}
+                      className={({ active }) => `
                         px-4 py-[10px] text-sm cursor-pointer ${
                           active ? 'bg-primary text-base-content-100' : ''
                         }
                     `}
-                  >
-                    {item.text}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
-            </Transition>
-          </div>
-        </Listbox>
-      </div>
-    </ClickAwayListener>
+                    >
+                      {item.text}
+                    </Listbox.Option>
+                  ))}
+                </Listbox.Options>
+              </Transition>
+            </div>
+          </Listbox>
+        </div>
+      </ClickAwayListener>
+    </Fragment>
   );
 };
