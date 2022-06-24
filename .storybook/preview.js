@@ -6,12 +6,14 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => (
+  Story => (
     <html
       data-theme="dark"
       style={{
         display: 'flex',
-        flexDirection: 'col',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         minHeight: '400px',
         borderRadius: '7px',
         margin: '0px',
