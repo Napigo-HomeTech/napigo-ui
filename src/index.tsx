@@ -5,3 +5,8 @@ export * from './components/input-select/InputSelect';
 export * from './components/select-button/SelectButton';
 export * from './components/textinput/CurrencyInput';
 export * from './components/textinput/TextInput';
+export * from './components/avatar/Avatar';
+export * from './components/checkbox/Checkbox';
+export * from './components/poppercard/PopperCard';
+export * from './components/toggle/Toggle';
+export * from './components/select/Select';
