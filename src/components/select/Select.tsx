@@ -40,7 +40,8 @@ export const Select: React.FC<SelectProps> = props => {
             <div className="relative">
               <Listbox.Button
                 as={'button'}
-                className={`relative 
+                className={`
+                relative 
                 input flex-1 
                 flex 
                 flex-row 
