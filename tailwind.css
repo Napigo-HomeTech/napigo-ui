@@ -2,5 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer components {
+  .listbox {
+    @apply form-control
+    w-full 
+    max-w-xs 
+    relative;
+  }
+  .listbox-button {
+    @apply relative 
+    input flex-1 
+    flex 
+    flex-row 
+    items-center 
+    bg-base-200 
+    border-transparent 
+    cursor-pointer
+    min-w-[200px]
+    w-full
+    focus:outline-none 
+    active:ring-offset-2
+    active:ring-offset-base-100
+    active:ring-base-300 
+    active:ring-2
+    focus:ring-offset-2
+    focus:ring-offset-base-100
+    focus:ring-base-300 
+    focus:ring-2
+    transition-none;
+  }
+  .listbox-button.active {
+    @apply ring-offset-2 
+    ring-offset-base-100 
+    ring-base-300 
+    ring-2;
+  }
+  .listbox-options {
+    @apply absolute 
+    bg-base-300 
+    mt-2 
+    overflow-auto 
+    rounded 
+    shadow-2xl 
+    w-full
+    focus:outline-none;
+  }
+  .listbox-option {
+    @apply px-4 py-[10px] text-sm cursor-pointer hover:bg-primary;
+  }
+  .listbox-option.default {
+    @apply dark:text-white/30 text-white/30;
+  }
+  .listbox-option.active {
+    @apply bg-primary text-base-content;
+  }
 }

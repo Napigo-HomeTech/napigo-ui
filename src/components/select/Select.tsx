@@ -4,11 +4,6 @@ import React, { Fragment, useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import ClickAwayListener from '../common/ClickAwayListener';
 
-const activeSelectClassMap = (active: boolean) => {
-  return active
-    ? 'ring-offset-2 ring-offset-base-100 ring-base-300 ring-2'
-    : '';
-};
 type Option = {
   value: string | number;
   text: string;
@@ -17,6 +12,7 @@ type Option = {
 type SelectProps = {
   label?: string;
   options: Option[];
+  listBoxComponent: React.ReactElement; //          This is the Base Component come from Headless use
 };
 export const Select: React.FC<SelectProps> = props => {
   const { label, options } = props;
@@ -30,7 +26,7 @@ export const Select: React.FC<SelectProps> = props => {
           setOpenDropdown(false);
         }}
       >
-        <div className="form-control w-full max-w-xs relative">
+        <div className="listbox">
           {label && (
             <label className="label">
               <span className="label-text">{label}</span>
@@ -41,27 +37,7 @@ export const Select: React.FC<SelectProps> = props => {
               <Listbox.Button
                 as={'button'}
                 className={`
-                relative 
-                input flex-1 
-                flex 
-                flex-row 
-                items-center 
-                bg-base-200 
-                border-transparent 
-                cursor-pointer
-                min-w-[200px]
-                w-full
-                focus:outline-none 
-                active:ring-offset-2
-                active:ring-offset-base-100
-                active:ring-base-300 
-                active:ring-2
-                focus:ring-offset-2
-                focus:ring-offset-base-100
-                focus:ring-base-300 
-                focus:ring-2
-                transition-none
-                ${activeSelectClassMap(openDropdown)}`}
+                listbox-button ${openDropdown ? 'active' : ''}`}
               >
                 <span className="block truncate">
                   {selected === null ? 'Select Option' : selected.text}
@@ -79,36 +55,23 @@ export const Select: React.FC<SelectProps> = props => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options
-                  className={`absolute 
-                bg-base-300 
-                mt-2 
-                overflow-auto 
-                rounded 
-                shadow-2xl 
-                w-full
-                focus:outline-none
-                `}
-                >
+                <Listbox.Options className="listbox-options">
                   <Listbox.Option
                     key={lodash.uniqueId()}
                     value={null}
                     className={({ active }) => `
-                        px-4 py-[10px] text-sm text-white/30 ${
-                          active ? 'bg-primary' : ''
-                        }
+                        listbox-option default ${active ? 'active' : ''}
                     `}
                   >
-                    Select Option
+                    Select Hanafi
                   </Listbox.Option>
                   {options.map((item: Option) => (
                     <Listbox.Option
                       key={lodash.uniqueId()}
                       value={item}
                       className={({ active }) => `
-                        px-4 py-[10px] text-sm cursor-pointer ${
-                          active ? 'bg-primary text-base-content-100' : ''
-                        }
+                      listbox-option ${active ? 'active' : ''}
+ 
                     `}
                     >
                       {item.text}
